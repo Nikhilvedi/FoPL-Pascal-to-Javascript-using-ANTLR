@@ -1,0 +1,35 @@
+enterProgram(v) ::= "var <v> = function <v>() {"
+
+exitProgram(v) ::= <<
+}
+<v>();>>
+
+VAR(values) ::= <<var <values; separator=", "> ;>>
+
+Write(v) ::= <<putstr(<v; separator="+">) ;>>
+ReadIn (v) ::= <<<v> = readline() ;>>
+
+procCall(v, values) ::= <<<v>(<values; separator=", ">) ;>>
+
+expr(v, i, m) ::=  <<
+<if (m) >
+(<i> <m> <v>)
+<else>
+<v>
+<endif> >>
+
+assignment(ident, value) ::= <<<ident> = <value>; >>
+
+ifClause(operand1, comparator, operand2) ::= <<if( <operand1> <comparator> <operand2> ) 
+{ >>
+
+elseClause() ::= " } else { "
+
+parameterList(values) ::=  << <values; separator=", "> ;>>
+
+ForLoop(operand1, operand2, comparator, operand3) ::=  <<for (<operand1>=<operand2>; <operand2> <comparator> <operand3>; <operand1>++) 
+{>>
+
+enterProcedure(v, values) ::= <<function <v>(<values; separator=", ">) {>>
+
+whileLoop(operand1, comparator, operand2) ::= <<while (<operand1> <comparator> <operand2>) {>>

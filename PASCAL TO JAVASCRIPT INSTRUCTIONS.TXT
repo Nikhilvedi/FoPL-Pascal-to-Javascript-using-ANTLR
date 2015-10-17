@@ -1,0 +1,61 @@
+﻿PASCAL TO JAVASCRIPT. 
+INSTRUCTIONS FOR USING COMPILER - 
+
+1. LOAD UP POWERSHELL
+2. SET THE HOME DIRECTORY TO THE FOLDER WHERE YOU'VE PLACED THE FILES
+3. UPDATE THE JAVA,JAVAC, AND ANTLR FILES SO THEY HAVE THE JDK WHICH IS ON THE SYSTEM YOU'RE USING.
+4. USE - JAVAC.BAT PASCAL/*.JAVA - TO RECOMPILE THE FILES TO THE LATEST VERSIONS 
+4.5 (YOU MAY HAVE TO RECOMPILE ALL TOGETHER, USING ANTLR) - INSTRUCTIONS PROVIDED BELLOW
+5. USE  - ..\JAVA.BAT PASCAL.PASCAL SAMPLE1.PASCAL > SAMPLE1.JS - TO CONVERT THE FIRST FILE TO JAVASCRIPT. CHECK THE FILE.
+6. IF THE FILE CONVERTED SUCCESSFULLY DO THE SAME WITH THE OTHER TWO FILES. 
+7. COMPILING COMPLETED.
+
+
+4.5.1 INSTRUCTIONS FOR USING ANTLR TO RECOMPILE FILES..
+4.5.2 LOCATE THE FILES PASCAL.JAVA AND PASCALlISTENERIMPL.JAVA - MAKE A COPY IN A DIRECTORY CALLED PASCAL
+4.5.3 TYPE - ..\antlr.bat −no−visitor -Listener −o pascal −package Pascal Pascal.g4
+4.5.4 USE ..\javac.bat pascal\*.java
+4.5.5 CONTINUE ABOVE.
+
+RUNNING THE FILE IN MOZILLASHELLjs
+Change Directory to the location of the MozillaShelljS
+Run .\MozillaShellJs where MozillaShellJs is the .exe's name 
+You should now have the powershell pointer as 'js>'
+Navigate to the files
+
+OPTION 1 - 
+Run ..\sample1.js (for example)
+Do the same with the other files. 
+
+OPTION 2 - 
+Write the program into the js> pointer (copy it out)
+
+Option 3 - 
+Double click on the js.exe which should bring up a command prompt window. Enter the code manually into the Command Box or find the file and run it. 
+
+CONTINUED INSTRUCTIONS - 
+
+PARSE TREES -
+PRINTING THE PARSE TREE -
+
+Veiwing the parse tree is possible in a jframe (swing) which appears when running the file using java.bat as explained above. 
+I have also saved the trees in a .png file with their respective names and the identifier _tree
+The code for this is in the pascal.java file. 
+(- Comment the jframe lines if you'd like to stop them outputting.) 
+
+THE PARSE TREE CAN BE PRINTED AS A STRING, GO TO PASCAL.JAVA AND UNCOMMENT THE LINE   
+"System.out.println(tree.toStringTree(parser));"
+Run ..\javac.bat pascal\*.java
+RUN ..\java.bat pascal.pascal sample1.pascal > sample1.js AND SEE THE STRING FORM OF THE TREE PRESENTED IN THE FILE (at the end).
+
+
+SAMPLE2.PASCAL - PROBLEM 
+
+I did some research into pascal and found that sample2 is invalid even after the correction sent out in an email, as far as i can tell from the grammar and looking online the file cant have a PROCEDURE statement following a BEGIN as the grammar interprets the PROCEDURE as a statement.
+Therefore sample2 is missing a closing brace at the end of the file, i've worked arround it and made as much work as possible. 
+
+The sample2_tree.png file shows the Parse tree mis-enterpreting the PROCEDURE as a STATEMENT.
+Whereas in savings_tree the parser finds the correct part of the grammar each time. 
+
+I also tried to add a rule in the grammar to fix this, but it broke further so removed it. 
+
